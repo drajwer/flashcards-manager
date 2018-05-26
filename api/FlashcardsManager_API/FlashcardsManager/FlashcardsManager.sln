@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlashcardsManager.Desktop", "FlashcardsManager.Desktop\FlashcardsManager.Desktop.csproj", "{76200234-D192-4947-A025-B46363EAAF05}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlashcardsManager.Api", "FlashcardsManager.Api\FlashcardsManager.Api.csproj", "{E6436CEA-C9B5-43E5-9B05-BE786F50484A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlashcardsManager.Core", "FlashcardsManager.Core\FlashcardsManager.Core.csproj", "{80883CA8-9ED5-4E59-81A1-0FC0429B8DF1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlashcardsManager.UnitTests", "FlashcardsManager.UnitTests\FlashcardsManager.UnitTests.csproj", "{A240BD0D-6DF6-4418-9DA6-313518AAA4CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlashcardsManager.IntegrationTests", "FlashcardsManager.IntegrationTests\FlashcardsManager.IntegrationTests.csproj", "{A0A2A40F-E05E-4359-8D45-46A50F5F4BAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76200234-D192-4947-A025-B46363EAAF05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76200234-D192-4947-A025-B46363EAAF05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76200234-D192-4947-A025-B46363EAAF05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76200234-D192-4947-A025-B46363EAAF05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6436CEA-C9B5-43E5-9B05-BE786F50484A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6436CEA-C9B5-43E5-9B05-BE786F50484A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6436CEA-C9B5-43E5-9B05-BE786F50484A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6436CEA-C9B5-43E5-9B05-BE786F50484A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80883CA8-9ED5-4E59-81A1-0FC0429B8DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80883CA8-9ED5-4E59-81A1-0FC0429B8DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80883CA8-9ED5-4E59-81A1-0FC0429B8DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80883CA8-9ED5-4E59-81A1-0FC0429B8DF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A240BD0D-6DF6-4418-9DA6-313518AAA4CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A240BD0D-6DF6-4418-9DA6-313518AAA4CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A240BD0D-6DF6-4418-9DA6-313518AAA4CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A240BD0D-6DF6-4418-9DA6-313518AAA4CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0A2A40F-E05E-4359-8D45-46A50F5F4BAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0A2A40F-E05E-4359-8D45-46A50F5F4BAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0A2A40F-E05E-4359-8D45-46A50F5F4BAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0A2A40F-E05E-4359-8D45-46A50F5F4BAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {75A2F04F-A194-4E79-8CDB-F431FDBF8243}
+	EndGlobalSection
+EndGlobal

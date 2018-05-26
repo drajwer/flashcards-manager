@@ -1,0 +1,53 @@
+﻿<Window x:Class="FlashcardsManager.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlashcardsManager.Desktop"
+        xmlns:viewModels="clr-namespace:FlashcardsManager.Desktop.ViewModels"
+        xmlns:views="clr-namespace:FlashcardsManager.Desktop.Views"
+        mc:Ignorable="d"
+        Title="Flashcards Manager"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized">
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type local:HomeViewModel}">
+            <local:HomeView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:FlashcardsViewModel}">
+            <local:FlashcardsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:CategoryViewModel}">
+            <views:CategoryView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:UserCategorySelectionViewModel}">
+            <views:UserCategorySelectionView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:UsersViewModel}">
+            <views:UsersView />
+        </DataTemplate>
+    </Window.Resources>
+
+    <DockPanel>
+        <Border DockPanel.Dock="Left" BorderBrush="Black" BorderThickness="0,0,1,0">
+            <ItemsControl ItemsSource="{Binding PageViewModels}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="{Binding Name}"
+                                Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                CommandParameter="{Binding }"
+                                Margin="2,5"
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Border>
+
+        <ContentControl Content="{Binding CurrentPageViewModel}" />
+    </DockPanel>
+</Window>

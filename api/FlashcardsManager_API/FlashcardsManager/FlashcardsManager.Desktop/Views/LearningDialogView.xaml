@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="FlashcardsManager.Desktop.Views.LearningDialogView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FlashcardsManager.Desktop.Views"
+             xmlns:converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:models="clr-namespace:FlashcardsManager.Core.Models;assembly=FlashcardsManager.Core"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="600" >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+            <converters:BooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter" TrueValue="Collapsed" FalseValue="Visible" />
+            <DataTemplate x:Key="Front" >
+                <TextBlock Text="{Binding Path=Flashcard.Key}"></TextBlock>
+
+            </DataTemplate>
+            <SolidColorBrush x:Key="SecondaryAccentBrush" Color="#FFFFFF"/>
+            <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="#01579B"/>
+        </ResourceDictionary>
+
+    </UserControl.Resources>
+    <materialDesign:ColorZone Mode="PrimaryDark"
+                                  VerticalAlignment="Stretch">
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+            <materialDesign:Card  Margin="10 10 10 10" Height="Auto"
+                           materialDesign:ShadowAssist.ShadowDepth="Depth5"
+                             VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                                materialDesign:ShadowAssist.ShadowEdges="Bottom,Left, Top, Right" 
+                                 >
+                <materialDesign:ColorZone Mode="Light" VerticalAlignment="Stretch">
+                    <Grid VerticalAlignment="Stretch">
+                        <TextBlock Margin="0 30 0 30" HorizontalAlignment="Center"
+                               Text="{Binding Path=Question}"
+                                   TextAlignment="Center" TextWrapping="Wrap"
+                                   Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
+                        <TextBlock Margin="0 30 0 50" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                               Text="{Binding Path=Description}"
+                                   TextAlignment="Center" TextWrapping="Wrap" FontStyle="Italic"
+                                   Style="{StaticResource MaterialDesignBody2TextBlock}"/>
+                    </Grid>
+                </materialDesign:ColorZone>
+            </materialDesign:Card>
+            <StackPanel VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Stretch"
+                        Visibility="{Binding ShowFront}">
+                <Button Content="Flip card"
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                        Command="{Binding FlipCardCommand}">
+                </Button>
+            </StackPanel>
+            <StackPanel Grid.Row="1" VerticalAlignment="Center"
+                        Visibility="{Binding ShowBack}">
+                <TextBlock Text="Was your answer correct?" TextAlignment="Center" 
+                           TextWrapping="Wrap" Margin="0 30 0 30"
+                           Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
+
+                <StackPanel VerticalAlignment="Center"  HorizontalAlignment="Center"
+                       Orientation="Horizontal">
+                    <Button Content="Yup" Margin="10 0 10 0"
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                        Command="{Binding CorrectAnswerCommand}">
+                    </Button>
+                    <Button Content="Not entirely :|" Margin="10 0 10 0"
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                        Command="{Binding IncompleteAnswerCommand}">
+                    </Button>
+                    <Button Content="Nope" Margin="10 0 10 0"
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                        Command="{Binding WrongAnswerCommand}">
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </materialDesign:ColorZone>
+</UserControl>

@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="FlashcardsManager.Desktop.Views.UserEditForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FlashcardsManager.Desktop.Views"
+             xmlns:viewModels="clr-namespace:FlashcardsManager.Desktop.ViewModels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500">
+        <StackPanel Margin="16" MinWidth="400">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <DockPanel  Grid.Row="0" Margin="5">
+                    <Label DockPanel.Dock="Left" Content="UserName:"/>
+                    <TextBox DockPanel.Dock="Left" Text="{Binding FormUser.Nickname }"/>
+                </DockPanel>
+                <DockPanel  Grid.Row="1" Margin="5">
+                    <Label DockPanel.Dock="Left" Content="Name:"/>
+                    <TextBox DockPanel.Dock="Left" Text="{Binding FormUser.Name }"/>
+                </DockPanel>
+                <DockPanel  Grid.Row="2" Margin="5">
+                    <Label DockPanel.Dock="Left" Content="Surname:"/>
+                    <TextBox DockPanel.Dock="Left" Text="{Binding FormUser.Surname }"/>
+                </DockPanel>
+            </Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <Button Style="{StaticResource MaterialDesignFlatButton}"
+                            IsDefault="True"
+                            Margin="0 8 8 0"
+                            Command="{Binding UpdateUserCommand}">
+                    UPDATE
+                </Button>
+                <Button Style="{StaticResource MaterialDesignFlatButton}"
+                            IsCancel="True"
+                            Margin="0 8 8 0"
+                            Command="materialDesign:DialogHost.CloseDialogCommand">
+                    <Button.CommandParameter>
+                        <system:Boolean>False</system:Boolean>
+                    </Button.CommandParameter>
+                    BACK
+                </Button>
+            </StackPanel>
+        </StackPanel>
+</UserControl>
